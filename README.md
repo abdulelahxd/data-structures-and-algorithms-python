@@ -1,15 +1,7 @@
-# Reverse an Array
-The reverse() method reverses the elements of the list.
-## Challenge
-this challenge is how to reverse the list to whatever it was inside it
+# Table of Contents
+<!-- 1 -->
+- [Array Reverse](challenges/array_reverse/README.md)
 
-## Approach & Efficiency
-1. try to understand the list method and play with it
-2. try it on my code
-3. dubug the problem I faced
-4. solve it 
-
-## Solution
-<!-- Embedded whiteboard image -->
-
-![picture](assests/array_reverse.png)
+- [Array Reverse with data folder](data_structures_and_algorithms/challenges/array_reverse/README.md)
+<!-- 2 -->
+- [Array Shift](challenges/array-shift/README.md)
