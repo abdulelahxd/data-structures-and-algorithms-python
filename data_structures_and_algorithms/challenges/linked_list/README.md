@@ -7,7 +7,7 @@ create a linked list with nodes linking to eachother
 Create a function that returns the node value k places away from teh end/tail
 
 ## Approach & Efficiency
- Create a node class with current  and next value properties
+Create a node class with current  and next value properties
 Create a linked list class with a head property to identify the first/newest node
 Create a function that inserts new nodes to the head of the list
 Create a function that checks if a node is already inside the list
@@ -32,8 +32,6 @@ Create a function that returns the node value kode places away from the end/tail
 		If the array is the same length as kode return kode-1 because array indexes at 0
 	Return array[kode]
 the array is in order of the node connections and is reversed
-
-
 
 ## Solution
 ![not me](../../../assests/linked_list.png)

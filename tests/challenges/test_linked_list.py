@@ -1,24 +1,101 @@
-from data_structures_and_algorithms.challenges.linked_list.linked_list import (
-    LinkedList,
-)
-linked_list_let = LinkedList()
-linked_list_let.insert(3)
-linked_list_let.insert(6)
-linked_list_let.insert(9)
-def test_instance():
-    assert isinstance(linked_list_let, LinkedList)
-def test_insert():
-    result = ''
-    linked_list = linked_list_let.head
-    while linked_list:
-        result += f'{linked_list.value},'
-        linked_list = linked_list.next
-    assert result == '3,6,9,'
-def test_head():
-    assert linked_list_let.head.value == 3
-def test_finding_notExist_value():
-    assert linked_list_let.includes(5) == False
-def test_finding_exist_value():
-    assert linked_list_let.includes(6) == True
-def test_string_str():
-    assert linked_list_let.toString() == '{3} -> {6} -> {9} -> NULL'
+import pytest
+from data_structures_and_algorithms.challenges.linked_list.linked_list import Linked_list
+
+def test_ll_instance():
+    assert Linked_list()
+
+def test_LinkedList_str():
+    ll = Linked_list()
+    ll.insert("apple")
+    ll.insert("banana")
+    actual = str(ll)
+    expected = "{ banana } -> { apple } -> NULL"
+    assert actual == expected
+
+def test_ll_repr():
+    ll = Linked_list()
+    actual = repr(ll)
+    expect = "linked list : None"
+    assert actual == expect
+
+def test_ll_head():
+    ll = Linked_list()
+    assert ll.head == None
+
+def test_ll_insert():
+    ll = Linked_list()
+    ll.insert("apple")
+    ll.insert("banana")
+    assert ll.head.value == "banana"
+    assert ll.head.next.value == 'apple'
+
+def test_ll_includes_true():
+    ll = Linked_list()
+    ll.insert("apple")
+    ll.insert("banana")
+    ll.insert("carrot")
+    actual = ll.includes("carrot")
+    expected = True
+    assert actual == expected
+
+def test_ll_includes_false():
+    ll = Linked_list()
+    ll.insert("apple")
+    ll.insert("banana")
+    ll.insert("carrot")
+    actual = ll.includes("donut")
+    expected = False
+    assert actual == expected
+
+def test_ll_insert_before(ll_list):
+    ll_list.insert_before("apple", "donut")
+    actual = str(ll_list)
+    expected = "{ carrot } -> { banana } -> { donut } -> { apple } -> NULL"
+    assert actual == expected
+
+def test_ll_insert_after(ll_list):
+    ll_list.insert_after("banana", "donut")
+    actual = str(ll_list)
+    expected = "{ carrot } -> { banana } -> { donut } -> { apple } -> NULL"
+    assert actual == expected
+
+def test_ll_append(ll_list):
+    ll_list.append("donut")
+    actual = str(ll_list)
+    expected = "{ carrot } -> { banana } -> { apple } -> { donut } -> NULL"
+    assert actual == expected
+
+def test_LinkedList_kth_from_end_0():
+    ll = Linked_list()
+    ll.insert(2)
+    ll.insert(8)
+    ll.insert(3)
+    ll.insert(1)
+    actual = ll.kth_from_end(0)
+    expected = 2
+    assert actual == expected
+
+def test_LinkedList_kth_from_end_2():
+    ll = Linked_list()
+    ll.insert(2)
+    ll.insert(8)
+    ll.insert(3)
+    ll.insert(1)
+    actual = ll.kth_from_end(2)
+    expected = 3
+    assert actual == expected
+
+
+def test_node_exception():
+    pass
+
+
+
+@pytest.fixture
+def ll_list():
+    """Sets up a linked list instance along with adds a few nodes for testing"""
+    ll = Linked_list()
+    ll.insert("apple")
+    ll.insert("banana")
+    ll.insert("carrot")
+    return ll
