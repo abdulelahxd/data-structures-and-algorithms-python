@@ -34,4 +34,4 @@ Create a function that returns the node value kode places away from the end/tail
 the array is in order of the node connections and is reversed
 
 ## Solution
-![not me](../../../assests/linked_list.png)
+![not me](../../../assests/class07.jpeg)
